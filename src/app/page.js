@@ -2,6 +2,7 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { useState, useEffect } from 'react';
+import Link from 'next/link';
 
 export default function Home() {
   const [scrolled, setScrolled] = useState(false);
@@ -33,7 +34,7 @@ export default function Home() {
               />
             </div>
             <div className="hidden md:flex space-x-8 ml-auto">
-              {['Services', 'About', 'Contact'].map((item) => (
+              {['Services', 'About'].map((item) => (
                 <a
                   key={item}
                   href={`#${item.toLowerCase()}`}
@@ -42,6 +43,12 @@ export default function Home() {
                   {item}
                 </a>
               ))}
+              <Link
+                href="/contact"
+                className="text-teal-800 hover:text-teal-600 transition-colors font-medium"
+              >
+                Contact
+              </Link>
             </div>
           </div>
         </div>
@@ -146,9 +153,11 @@ export default function Home() {
           <p className="mb-8 max-w-2xl mx-auto text-white/90">
             Contact us today to discuss how we can help you achieve your business goals.
           </p>
-          <button className="bg-white text-blue-800 px-8 py-4 rounded-lg hover:bg-amber-500 transition-colors shadow-lg">
-            Contact Us
-          </button>
+          <Link href="/contact">
+            <button className="bg-white text-blue-800 px-8 py-4 rounded-lg hover:bg-amber-500 transition-colors shadow-lg">
+              Contact Us
+            </button>
+          </Link>
         </div>
       </section>
     </div>
